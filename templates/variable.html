@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Statistics(Enter Variables)</title>
+</head>
+
+<body>
+    <h1>Enter Required Variables</h1>
+    <div>
+        <h2>Dataset columns</h2>
+        {%for i, x in content.data_cols%}
+            {%if i%8==0:%}
+            <br>            
+            {{x}}
+            {%else:%}
+            {{x}}
+            {%endif%}
+
+            <!-- {{x}} -->
+        {%endfor%}
+    </div>
+    <br>
+    <form action="/get_results" method="post">
+        <div>
+            <div>
+                {{content.category1}}
+                <input type="text" name="category1">
+            </div>
+            <br>
+            <div>
+                {{content.category2}}
+                <input type="text" name="category2">
+            </div>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+
+</html>
