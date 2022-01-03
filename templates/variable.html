@@ -5,42 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/variable.css') }}">
     <title>Test Statistics(Enter Variables)</title>
 </head>
 
 <body>
-    <h1>Enter Required Variables</h1>
-    <div>
-        <h2>Dataset columns</h2>
-        {%for i, x in content.data_cols%}
-            {%if i%8==0:%}
-            <br>            
-            {{x}}
-            {%else:%}
-            {{x}}
-            {%endif%}
-
-            <!-- {{x}} -->
-        {%endfor%}
-    </div>
-    <br>
-    <form action="/get_results" method="post">
-        <div>
+    <h1 class="pageTitle">Variable Details ({{content.test_name}})</h1>
+    <div class="gridDiv">
+        <div class="colDetails">
+            <h2>Dataset columns: </h2>
+            <div class="cols">
+                {%for i, x in content.data_cols%}                
+                    <div class="columns">{{i+1}}){{x}}</div>
+                {%endfor%}
+            </div>
+        </div>
+        <form action="/get_results" method="post">
+            <h2>Enter Required Variables: </h2>
             <div>
-                {{content.category1}}
-                <input type="text" name="category1">
+                <div>
+                    {{content.category1}}
+                    <input type="text" name="category1">
+                </div>
+                <br>
+                <div>
+                    {{content.category2}}
+                    <input type="text" name="category2">
+                </div>
             </div>
             <br>
             <div>
-                {{content.category2}}
-                <input type="text" name="category2">
+                <input type="submit" value="Submit" class="submitBtn">
             </div>
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="Submit">
-        </div>
-    </form>
+        </form>
+    
+        
+    </div>
 </body>
 
 </html>

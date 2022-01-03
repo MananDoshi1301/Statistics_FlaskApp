@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}">
   <title>Home Page</title>
 </head>
 <body>
-  <h1>Welcome to test statistics!</h1>
+  <h1 class="pageTitle">Welcome To Test Statistics!</h1>
 
   <form action="/get_variables" method="post">
-    <div>
-      <h3>Select the type of test:</h3>
+    <div class="indexform">
+      <span>Select the type of test:</span>
       <select name="test_type" id="">
         <option value="0">One Sample T-Test</option>
         <option value="1">Independent T-Test</option>
@@ -22,12 +23,11 @@
       </select>
     </div>      
     <div>
-      <h3>Select the dataset:</h3>
-      <input type="file" name="dataset_file" accept=".csv" id="">
-    </div>
-    <br>
+      <span>Select the dataset:</span>
+      <input type="file" name="dataset_file" accept=".csv" id="" required>
+    </div>    
     <div>
-      <input type="submit" value="Submit">
+      <input type="submit" class="confirmBtn" value="Confirm">
     </div>
   </form>
 </body>

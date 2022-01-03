@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/result.css') }}">
     <title>Result of {{content.test_name}}</title>
 </head>
 <body>
-    <h1>Results are as follows: </h1>
+    <h1 class="pageTitle">Results</h1>
     <div>
-        P-Value = {{content.p_val}}
-        {{content.test_stat_name}} = {{content.test_stat}}
-        Hypothesis: {{content.hypo}}
+        <h2>The results of the tests are as follows:</h2>
+        <div class="resultDiv">
+            <div class="tableHead">Test Characteristic:</div>
+            <div class="tableHead">Characteristic Value:</div>
+            <div>P-Value</div>
+            <div>{{content.p_val}}</div>
+            <div>{{content.test_stat_name}}</div>
+            <div>{{content.test_stat}}</div>                                    
+        </div>
+        <h3>Hypothesis: {{content.hypo}}!</h3>
+        <h4>Thank you for taking the test!</h4>
+        <form action="/" method="get">
+            <button type="submit" class="submitBtn">Take Another Test</button>
+        </form>
     </div>
 </body>
 </html>
